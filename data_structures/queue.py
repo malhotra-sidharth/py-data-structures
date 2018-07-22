@@ -57,7 +57,7 @@ class Queue:
 
     :return: unsigned integer denoting count of elements in the queue
     """
-    return len(self)
+    return len(self.__queue)
 
 
   def is_empty(self):
