@@ -52,14 +52,14 @@ class OneWayList:
     :param data: item to be searched
     :return: True if data is found in the list else False
     """
-    start = self.__head
+    current = self.__head
     found = False
-    while start != None:
-      if start.get_data() == data:
+    while current != None:
+      if current.get_data() == data:
         found = True
         break
       else:
-        start = start.get_next()
+        current = current.get_next()
 
     return found
 
@@ -72,20 +72,21 @@ class OneWayList:
     :param data: data of the node which is to be removed
     :return: True if node is found and deleted else False
     """
-    start = self.__head
+    current = self.__head
     previous = None
     deleted = False
-    while start != None:
-      if start.get_data() == data:
+    while current != None:
+      if current.get_data() == data:
         if previous == None:
-          self.__head = start.get_next()
+          self.__head = current.get_next()
         else:
-          previous.set_next(start.get_next())
+          previous.set_next(current.get_next())
         deleted = True
         self.__size -= 1
+        break
       else:
-        previous = start
-        start = start.get_next()
+        previous = current
+        current = current.get_next()
 
     return deleted
 
