@@ -14,7 +14,7 @@ class QueueList:
     Adds new data value to the Queue
     Complexity -> O(1)
 
-    :param data:
+    :param data: data to be inserted in the queue
     """
     node = OneWayNode(data)
     if self.__size == 0:

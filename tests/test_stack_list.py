@@ -1,4 +1,4 @@
-from data_structures.stack.stack import Stack
+from data_structures.stack.stackList import StackList
 import unittest
 
 class TestStack(unittest.TestCase):
@@ -10,7 +10,7 @@ class TestStack(unittest.TestCase):
     """
     Test for push method
     """
-    stack = Stack()
+    stack = StackList()
     self.assertEqual(stack.size(), 0)
     stack.push(1)
     stack.push(2)
@@ -22,7 +22,7 @@ class TestStack(unittest.TestCase):
     """
     Test for peek method
     """
-    stack = Stack()
+    stack = StackList()
     self.assertEqual(stack.peek(), None)
     stack.push(1)
     stack.push(2)
@@ -35,7 +35,7 @@ class TestStack(unittest.TestCase):
     """
     Test for pop method
     """
-    stack = Stack()
+    stack = StackList()
     self.assertEqual(stack.pop(), None)
     stack.push(1)
     stack.push(2)
@@ -48,7 +48,7 @@ class TestStack(unittest.TestCase):
     """
     Test for is_empty method
     """
-    stack = Stack()
+    stack = StackList()
     self.assertEqual(stack.is_empty(), True)
     stack.push(1)
     self.assertEqual(stack.is_empty(), False)
@@ -59,7 +59,7 @@ class TestStack(unittest.TestCase):
     """
     Test for size method
     """
-    stack = Stack()
+    stack = StackList()
     self.assertEqual(stack.size(), 0)
     stack.push(1)
     self.assertEqual(stack.size(), 1)
