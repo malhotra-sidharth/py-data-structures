@@ -1,7 +1,7 @@
-from data_structures.queue.queue import Queue
+from data_structures.queue.queueList import QueueList
 import unittest
 
-class TestQueue(unittest.TestCase):
+class TestQueueList(unittest.TestCase):
   """
   Unit Tests for Queue Data Structure
   """
@@ -10,19 +10,18 @@ class TestQueue(unittest.TestCase):
     """
     Test for enqueue method
     """
-    queue = Queue()
+    queue = QueueList()
     self.assertEqual(queue.size(), 0)
     queue.enqueue(1)
     queue.enqueue(2)
     queue.enqueue(3)
     self.assertEqual(queue.size(), 3)
 
-
   def test_dequeue(self):
     """
     Test for dequeue method
     """
-    queue = Queue()
+    queue = QueueList()
     self.assertEqual(queue.dequeue(), None)
     queue.enqueue(1)
     queue.enqueue(2)
@@ -30,12 +29,11 @@ class TestQueue(unittest.TestCase):
     self.assertEqual(queue.dequeue(), 1)
     self.assertEqual(queue.size(), 2)
 
-
   def test_peek(self):
     """
     Test for peek method
     """
-    queue = Queue()
+    queue = QueueList()
     self.assertEqual(queue.peek(), None)
     queue.enqueue(1)
     queue.enqueue(2)
@@ -43,26 +41,24 @@ class TestQueue(unittest.TestCase):
     self.assertEqual(queue.peek(), 1)
     self.assertEqual(queue.size(), 3)
 
-
   def test_is_empty(self):
     """
     Test for is_empty method
     """
-    queue = Queue()
+    queue = QueueList()
     self.assertEqual(queue.is_empty(), True)
     queue.enqueue(1)
     self.assertEqual(queue.is_empty(), False)
-
 
   def test_size(self):
     """
     Test for size method
     """
-    queue = Queue()
+    queue = QueueList()
     self.assertEqual(queue.size(), 0)
     queue.enqueue(1)
     self.assertEqual(queue.size(), 1)
 
 
 if __name__ == '__main__':
-    unittest.main()
+   unittest.main()
