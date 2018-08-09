@@ -17,12 +17,13 @@ class QueueList:
     :param data:
     """
     node = OneWayNode(data)
-    node.set_next(self.__next)
     if self.__size == 0:
       self.__head = node
-
+      self.__next = node
+    else:
+      self.__next.set_next(node)
+      self.__next = node
     self.__size += 1
-    self.__next = node
 
 
   def peek(self):
@@ -49,9 +50,10 @@ class QueueList:
     if self.__size == 0:
       return None
     else:
-      node = self.__head.get_data()
+      data = self.__head.get_data()
       self.__head = self.__head.get_next()
       self.__size -= 1
+      return data
 
   def size(self):
     """
