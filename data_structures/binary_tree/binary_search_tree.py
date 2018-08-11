@@ -16,28 +16,30 @@ class BinarySearchTree:
     else:
       self.__insert(self.__root, node)
 
-
-  def find(self, data):
-    return self.__find(self.__root, data)
-
-
   def get_size(self):
     return self.__size
 
   def get_root(self):
     return self.__root
 
+  def preorder(self):
+    lst = []
+    self.__preorder(self.__root, lst)
+    return lst
 
-  def __find(self, node, data):
-    if (node.get_data() == data):
-      return True
-    elif (node.is_leaf()):
-      return False
+  def find(self, node, data):
+    if (node.get_data() == data or node == None):
+      return node
     elif (data > node.get_data()):
-      return self.__find(node.get_right_child(), data)
+      return self.find(node.get_right_child(), data)
     else:
-      return self.__find(node.get_left_child(), data)
+      return self.find(node.get_left_child(), data)
 
+  def __preorder(self, root, lst):
+    if root != None:
+      lst.append(root.get_data())
+      self.__preorder(root.get_left_child(), lst)
+      self.__preorder(root.get_right_child(), lst)
 
   def __insert(self, root, node, parent=None):
     if (node.get_data() > root.get_data()):
@@ -54,3 +56,7 @@ class BinarySearchTree:
         root.set_left_child(node)
         node.set_parent(root)
         return
+
+  # IN-PRE_POST ORDERS
+  # TREE-MINIMUM-MAXIMUM
+  # TREE SUCCESSOR
