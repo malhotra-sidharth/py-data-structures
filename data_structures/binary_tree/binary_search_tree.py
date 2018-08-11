@@ -31,6 +31,11 @@ class BinarySearchTree:
     lst = []
     self.__inorder(self.__root, lst)
     return lst
+  
+  def postorder(self):
+    lst = []
+    self.__postorder(self.__root, lst)
+    return lst
 
   def find(self, node, data):
     if (node.get_data() == data or node == None):
@@ -51,6 +56,12 @@ class BinarySearchTree:
       self.__inorder(root.get_left_child(), lst)
       lst.append(root.get_data())
       self.__inorder(root.get_right_child(), lst)
+
+  def __postorder(self, root, lst):
+    if root != None:
+      self.__postorder(root.get_left_child(), lst)
+      self.__postorder(root.get_right_child(), lst)
+      lst.append(root.get_data())
 
   def __insert(self, root, node, parent=None):
     if (node.get_data() > root.get_data()):
