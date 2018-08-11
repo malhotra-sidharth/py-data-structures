@@ -27,6 +27,11 @@ class BinarySearchTree:
     self.__preorder(self.__root, lst)
     return lst
 
+  def inorder(self):
+    lst = []
+    self.__inorder(self.__root, lst)
+    return lst
+
   def find(self, node, data):
     if (node.get_data() == data or node == None):
       return node
@@ -40,6 +45,12 @@ class BinarySearchTree:
       lst.append(root.get_data())
       self.__preorder(root.get_left_child(), lst)
       self.__preorder(root.get_right_child(), lst)
+
+  def __inorder(self, root, lst):
+    if root != None:
+      self.__inorder(root.get_left_child(), lst)
+      lst.append(root.get_data())
+      self.__inorder(root.get_right_child(), lst)
 
   def __insert(self, root, node, parent=None):
     if (node.get_data() > root.get_data()):
