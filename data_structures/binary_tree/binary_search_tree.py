@@ -31,19 +31,24 @@ class BinarySearchTree:
     lst = []
     self.__inorder(self.__root, lst)
     return lst
-  
+
   def postorder(self):
     lst = []
     self.__postorder(self.__root, lst)
     return lst
 
-  def find(self, node, data):
-    if (node.get_data() == data or node == None):
-      return node
+  def find(self, data):
+    return self.__find(self.__root, data)
+
+  def __find(self, node, data):
+    if (node.get_data() == data):
+      return True
+    elif (node.is_leaf()):
+      return False
     elif (data > node.get_data()):
-      return self.find(node.get_right_child(), data)
+      return self.__find(node.get_right_child(), data)
     else:
-      return self.find(node.get_left_child(), data)
+      return self.__find(node.get_left_child(), data)
 
   def __preorder(self, root, lst):
     if root != None:
