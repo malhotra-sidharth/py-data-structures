@@ -30,6 +30,50 @@ class TestBinarySearchTree(unittest.TestCase):
     self.assertEqual(bst.find(0), False)
 
 
+  def test_preorder(self):
+    bst = BinarySearchTree()
+    preorder = [4, 3, 2, 1, 5, 6, 7]
+    bst.insert(4)
+    bst.insert(3)
+    bst.insert(2)
+    bst.insert(1)
+    bst.insert(5)
+    bst.insert(6)
+    bst.insert(7)
+    self.assertEqual(self.compare(bst.preorder(), preorder), True)
+
+
+  def test_inorder(self):
+    bst = BinarySearchTree()
+    inorder = [1, 2, 3, 4, 5, 6, 7]
+    bst.insert(4)
+    bst.insert(3)
+    bst.insert(2)
+    bst.insert(1)
+    bst.insert(5)
+    bst.insert(6)
+    bst.insert(7)
+    self.assertEqual(self.compare(bst.inorder(), inorder), True)
+
+
+  def test_postorder(self):
+    bst = BinarySearchTree()
+    postorder = [1, 2, 3, 7, 6, 5, 4]
+    bst.insert(4)
+    bst.insert(3)
+    bst.insert(2)
+    bst.insert(1)
+    bst.insert(5)
+    bst.insert(6)
+    bst.insert(7)
+    self.assertEqual(self.compare(bst.postorder(), postorder), True)
+
+  def compare(self, lst1, lst2):
+    for l1, l2 in zip(lst1, lst2):
+      if l1 != l2:
+        return False
+
+    return True
 
 if __name__ == '__main__':
     unittest.main()
